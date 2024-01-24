@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<library xmlns="http://www.sap.com/sap.ui.library.xsd">
+	<name>vwlaekh.portal.mitglieder.controls</name>
+	<vendor>Helmut Tammen</vendor>
+	<version>${version}</version>
+	<copyright>${copyright}</copyright>
+	<title>vwlaekh.portal.mitglieder.controls</title>
+	<documentation>Some description about vwlaekh.portal.mitglieder.controls</documentation>
+	<dependencies>
+		<dependency>
+			<libraryName>sap.ui.core</libraryName>
+		</dependency>
+	</dependencies>
+</library>
