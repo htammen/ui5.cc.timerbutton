@@ -1,12 +1,12 @@
-# UI5 Library vwlaekh.portal.mitglieder.controls
+# UI5 Library ui5.cc.timerbutton
 
-Insert the purpose of this project and some interesting info here...
+This library provides enhanced sap.m.Button controls.
+The following buttons are implemented
+- TimerButton, a button that delays enable or visible event and shows other text and/or icon while the button is disabled
 
 ## Description
 
-This app demonstrates a TypeScript setup for developing UI5 libraries. The central entry point for all information about using TypeScript with UI5 is at [https://sap.github.io/ui5-typescript](https://sap.github.io/ui5-typescript).
-
-**The template is inspired by the [`SAP-samples/ui5-typescript-control-library`](https://github.com/SAP-samples/ui5-typescript-control-library) project. It explains how this setup is created and how all the bits and pieces fit together.**
+TBD
 
 ## Requirements
 

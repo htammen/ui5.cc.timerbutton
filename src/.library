@@ -1,14 +1,15 @@
 <?xml version="1.0" ?>
 <library xmlns="http://www.sap.com/sap.ui.library.xsd">
-	<name>vwlaekh.portal.mitglieder.controls</name>
+	<name>ui5.cc.timerbutton</name>
 	<vendor>Helmut Tammen</vendor>
 	<version>${version}</version>
 	<copyright>${copyright}</copyright>
-	<title>vwlaekh.portal.mitglieder.controls</title>
-	<documentation>Some description about vwlaekh.portal.mitglieder.controls</documentation>
+	<title>ui5-cc-timerbutton</title>
+	<documentation>TimerButton UI5 Control</documentation>
 	<dependencies>
 		<dependency>
 			<libraryName>sap.ui.core</libraryName>
+			<libraryName>sap.m</libraryName>
 		</dependency>
 	</dependencies>
 </library>

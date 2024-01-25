@@ -1,4 +1,4 @@
-module.exports = function (config) {
+module.exports = function(config) {
 	require("./karma-ci.conf")(config);
 	config.set({
 		reporters: ["progress", "coverage"],
@@ -7,8 +7,8 @@ module.exports = function (config) {
 			"test/**/*.ts": ["ui5-transpile"]
 		},
 		proxies: {
-			'/resources/vwlaekh/portal/mitglieder/controls/': '/base/src/',
-			'/test-resources/vwlaekh/portal/mitglieder/controls/': '/base/test/',
+			'/resources/ui5/cc/timerbutton/': '/base/src/',
+			'/test-resources/ui5/cc/timerbutton/': '/base/test/',
 		},
 		coverageReporter: {
 			dir: "coverage",

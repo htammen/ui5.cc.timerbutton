@@ -1,12 +1,12 @@
 specVersion: "3.0"
 metadata:
-  name: vwlaekh.portal.mitglieder.controls
+  name: ui5-cc-timerbutton
 type: library
 resources:
   configuration:
     paths:
-      src: dist/resources/vwlaekh/portal/mitglieder/controls/
-      test: dist/test-resources/vwlaekh/portal/mitglieder/controls/
+      src: dist/resources/ui5/cc/timerbutton/
+      test: dist/test-resources/ui5/cc/timerbutton/
 framework:
   name: OpenUI5
   version: 1.108.19

@@ -1,12 +1,13 @@
 specVersion: "3.0"
 metadata:
-  name: vwlaekh.portal.mitglieder.controls
+  name: ui5-cc-timerbutton
 type: library
 framework:
   name: OpenUI5
   version: 1.108.19
   libraries:
     - name: sap.ui.core
+    - name: sap.m
     - name: themelib_sap_horizon
     - name: themelib_sap_fiori_3
 builder:
