@@ -5,8 +5,8 @@ type: library
 resources:
   configuration:
     paths:
-      src: dist/resources/
-      test: dist/test-resources/
+      src: dist/resources/ui5/cc/timerbutton/
+      test: dist/test-resources/ui5/cc/timerbutton/
 framework:
   name: OpenUI5
   version: 1.108.19
