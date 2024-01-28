@@ -2,8 +2,8 @@
   "name": "ui5-cc-timerbutton",
   "version": "1.0.0",
   "description": "UI5 Library with a timerbutton. It's a button that can be disabled for a given amount of time",
-  "author": "Helmut Tammen",
-  "license": "Apache-2.0",
+  "author": "Helmut Tammen <h.tammen@tammen-it-solutions.de>",
+  "license": "Beerware",
   "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist coverage",
@@ -18,7 +18,7 @@
     "karma": "karma start",
     "karma-ci": "karma start karma-ci.conf.js",
     "karma-ci-cov": "karma start karma-ci-cov.conf.js",
-    "test": "npm run lint && npm run karma-ci-cov"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@openui5/ts-types-esm": "1.108.19",

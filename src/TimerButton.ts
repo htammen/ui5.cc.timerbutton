@@ -29,7 +29,7 @@ export default class TimerButton extends Button {
 	private counter: number = 0;
 	private timeoutHandle: any = null;
 	private oldText: string = '';
-	private oldIcon: any;
+	private oldIcon: any = null;
 	// The following three lines were generated and should remain as-is to make TypeScript aware of the constructor signatures
 	constructor(id?: string | $TimerButtonSettings);
 	constructor(id?: string, settings?: $TimerButtonSettings);
@@ -53,7 +53,7 @@ export default class TimerButton extends Button {
 			timeoutIcon: {
 				type: 'string',
 				group: 'Misc',
-				defaultValue: null
+				defaultValue: 'sap-icon://pending'
 			},
 			timeoutEventType: {
 				type: "ui5.cc.timerbutton.EventType",
@@ -76,6 +76,7 @@ export default class TimerButton extends Button {
 		this.counter = 0
 		this.setProperty('text', this.oldText)
 		this.setProperty('icon', this.oldIcon || null)
+		this.oldIcon = null
 		switch (this.getProperty('timeoutEventType')) {
 			case TimeoutEventType.enabled:
 				this.setProperty('enabled', true)
@@ -90,6 +91,11 @@ export default class TimerButton extends Button {
 		}
 	}
 
+	setText(sText: string) {
+		this.oldText = sText
+		return super.setText(sText)
+	}
+
 	setEnabled(bEnabled?: boolean): this {
 		if (this.getProperty('timeoutEventType') === TimeoutEventType.enabled && bEnabled && this.getProperty('timeout') > 0) {
 			this.oldText = this.getProperty('text')
@@ -100,7 +106,8 @@ export default class TimerButton extends Button {
 			}, this.getProperty('timeout'));
 			return this;
 		} else {
-			this.oldIcon = this.getProperty('icon')
+			// @ts-ignore
+			this.oldIcon = this.oldIcon || this.getProperty('icon') || this._sTypeIconURI
 			this.setProperty('icon', this.getProperty('timeoutIcon'))
 			return super.setEnabled(bEnabled)
 		}

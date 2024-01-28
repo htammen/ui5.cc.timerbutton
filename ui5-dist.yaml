@@ -5,12 +5,13 @@ type: library
 resources:
   configuration:
     paths:
-      src: dist/resources/ui5/cc/timerbutton/
-      test: dist/test-resources/ui5/cc/timerbutton/
+      src: dist/resources/
+      test: dist/test-resources/
 framework:
   name: OpenUI5
   version: 1.108.19
   libraries:
     - name: sap.ui.core
+    - name: sap.m
     - name: themelib_sap_horizon
     - name: themelib_sap_fiori_3
