@@ -18,7 +18,9 @@
     "karma": "karma start",
     "karma-ci": "karma start karma-ci.conf.js",
     "karma-ci-cov": "karma start karma-ci-cov.conf.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nwabap:upload": "npx nwabap upload",
+    "deploy": "npm-run-all build nwabap:upload"
   },
   "devDependencies": {
     "@openui5/ts-types-esm": "1.108.19",
@@ -36,6 +38,7 @@
     "rimraf": "^5.0.5",
     "typescript": "^5.3.3",
     "ui5-middleware-livereload": "^3.0.2",
-    "ui5-tooling-transpile": "^3.3.2"
+    "ui5-tooling-transpile": "^3.3.2",
+    "nwabap-ui5uploader": "^1.2.0"
   }
 }
