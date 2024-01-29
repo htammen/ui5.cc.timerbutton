@@ -1,0 +1,19 @@
+// Generated with TypeScript 5.3.3 / OpenUI5 1.108.19 using:
+//   - mdurl@1.0.1
+//   - linkify-it@3.0.3
+//   - undici-types@5.26.5
+//   - @types/sizzle@2.3.8
+//   - @types/semver@7.5.6
+//   - @types/qunit@2.5.4
+//   - @types/normalize-package-data@2.4.4
+//   - @types/node@20.11.6
+//   - @types/mdurl@1.0.5
+//   - @types/markdown-it@12.2.3
+//   - @types/linkify-it@3.0.5
+//   - @types/json-schema@7.0.15
+//   - @types/jquery@3.5.13
+//   - @types/cors@2.8.17
+//   - @types/cookie@0.4.1
+/// <reference path="./resources/ui5/cc/timerbutton/TimerButton.d.ts"/>
+/// <reference path="./resources/ui5/cc/timerbutton/TimerButton.gen.d.ts"/>
+/// <reference path="./resources/ui5/cc/timerbutton/library.d.ts"/>
