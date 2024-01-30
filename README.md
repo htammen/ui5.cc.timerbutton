@@ -6,7 +6,57 @@ The following buttons are implemented
 
 ## Description
 
-TBD
+### TimerButton
+
+The TimerButton control is a regular sap.m.Button with the following additional feature
+
+ This control works as folows.
+ - You set the enabled or visible property of your Button to false
+ - The control gets disabled or invisible, see property timeoutEventType
+ - if timeoutEventType === enabled
+     - The control shows the "timeoutIcon" (property) instead of the original icon
+     - after you set the enabled property of the button to true shows the "timeoutButtonText" (property), if defined
+ - after "timeout" (property) milliseconds the button gets enabled / visible and the original text and icon are shown at the button.
+
+Here are the additional properties that can be used
+
+```
+			/**
+			 * time in milliseconds that the control stays in disabled/invisible state after the enabled/visible property
+			 * has been set to true
+			 */
+			timeout: {
+				type: 'int',
+				group: 'Misc',
+				defaultValue: 5000
+			},
+			/**
+			 * text that is displayed at the button in the time the enabled property has been set to true until timeout
+			 * is reached and the button is enabled again. After that time the original text of the button is displayed.
+			 */
+			timeoutButtonText: {
+				type: 'string',
+				group: 'Misc',
+				defaultValue: null
+			},
+			/**
+			 * Icon that is displayed at the button in the time the enabled property has been set to true until timeout
+			 * is reached and the button is enabled again. After that time the original icon of the button is displayed.
+			 */
+			timeoutIcon: {
+				type: 'string',
+				group: 'Misc',
+				defaultValue: 'sap-icon://pending'
+			},
+			/**
+			 * Event that the functionality is working with. Currently enabled and visible events are supported.
+			 */
+			timeoutEventType: {
+				type: "ui5.cc.timerbutton.EventType",
+				group: "Misc",
+				defaultValue: TimeoutEventType.enabled
+			}
+```
 
 ## Requirements
 
@@ -76,9 +126,127 @@ npm run lint
 
 (Again, when using yarn, do `yarn ts-typecheck` and `yarn lint` instead.)
 
+## Deploy to ABAP server 
+
+To deploy and use the library to an ABAP server (e.g. SAP Netweaver 7.50) you can do the following (there are other ways to achieve this).
+
+Install the `nwabap:upload` npm package   
+`npm install nwabap:upload`
+
+In the root folder of your project create a file `.nwabaprc`.  
+The file should have the following content (adjust to your needs):
+```
+{
+    "base": "./dist/resources",
+    "conn_server": "https://abapserver.my.lan:50001",
+    "conn_usestrictssl": "false",
+    "conn_user": "<Your ABAP user name>",
+    "conn_password": "<Your ABAP user password>",
+    "conn_client": "001",
+    "abap_language": "DE",
+    "abap_package": "Z_APPS",
+    "abap_bsp": "ZGP_LIB_CTRLS",
+    "abap_bsp_text": "UI5 library mit TimerButton",
+    "abap_transport": "XXXK9999999",
+    "files_start_with_dot" : "true",
+    "calcappindex": true
+}
+```
+It's important that this configuration contains the undocumented `files_start_with_dot: true` line cause otherwise the `.library` file 
+will not be deployed.  
+
+After you created this file just run `npm run deploy`.  
+You will see something like this in transaction `se80`.
+
+![ABAP Deployment](docs/img/ZGP_LIB_CTRLS.png)
+
+### Use your library in UI5 app 
+
+To use the controls in your UI5 apps just add it to your `manifest.json`
+
+```
+  "sap.ui5": {
+    ...
+    ...
+    "dependencies": {
+      "minUI5Version": "1.108.19",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.ui.layout": {},
+        "sap.m": {},
+        "ui5.cc.timerbutton": {}
+      }
+    },
+```
+
+Now you can use the control in your views 
+
+```
+<mvc:View
+	controllerName="my.namespace.controller.Main"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+  xmlns:timerbtn="ui5.cc.timerbutton">
+
+  ...
+  ...
+  ...
+
+        <timerbtn:TimerButton
+          id='btnSaveChanges'
+          text="{i18n>save}"
+          timeout="15000"
+          timeoutButtonText="{i18n>timeoutbutton.timeouttext}"
+          type="Success"
+          press=".onSaveChanges"
+        />
+```
+
+### Use the library at dev time on localhost 
+
+Most developers develop their UI5 application on their local PC and access the app locally at `http://localhost...`.  
+This is achieved by using `ui5 serve` from the UI5 tooling.  
+Cause you cannot access the ABAP runtime from there you need to tell your local server (aka ui5 serve) where to find the 
+library.  
+
+Install the `ui5.cc.timerbutton` as dev dependency.  
+`npm install -D ui5-cc-timerbutton`
+
+Then add the following to your `ui5.yaml`.  
+It's important that the `ui5-middleware-servestatic` follows the proxy middleware (fiori-tools-proxy in my case) cause otherwise 
+the timerbutton mountPath will not be available.
+
+```
+server:
+    customMiddleware:
+        - name: ui5-middleware-livereload
+          afterMiddleware: compression
+          configuration:
+              debug: true
+              extraExts: 'xml,json,properties'
+              port: 35729
+              path: 'webapp'
+        - name: fiori-tools-proxy
+          afterMiddleware: compression
+          configuration:
+              ignoreCertError: true # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+              ui5:
+                  path:
+                      - /resources
+                      - /test-resources
+                  url: https://ui5.sap.com
+        - name: ui5-middleware-servestatic
+          afterMiddleware: compression
+          mountPath: /resources/ui5/cc/timerbutton/
+          configuration:
+            rootPath: ./node_modules/ui5-cc-timerbutton/dist/resources/ui5/cc/timerbutton/
+```
+
 ## License
 
-This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
+This project is licensed under the beerware License, except as noted otherwise in the [LICENSE](LICENSE) file.
 
 ---
 
