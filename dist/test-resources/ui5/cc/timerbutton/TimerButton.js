@@ -29,6 +29,7 @@ sap.ui.define(["ui5/cc/timerbutton/TimerButton", "ui5/cc/timerbutton/library", "
     timeoutIcon: 'sap-icon://pending',
     tooltip: "Disable me for the time of the async call (2 seconds) and 5 seconds after the buttons setEnabled(true) function has been called",
     timeout: 5000,
+    timeoutButtonText: 'Whats going on',
     press: event => {
       event.getSource().setEnabled(false);
       MessageToast.show('Holla die Waldfee, Button is disabled');

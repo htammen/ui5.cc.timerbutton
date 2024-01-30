@@ -32,33 +32,43 @@ sap.ui.define(["sap/m/Button", "sap/m/ButtonRenderer", "./library"], function (B
     metadata: {
       library: "ui5.cc.timerbutton",
       properties: {
+        /**
+         * time in milliseconds that the control stays in disabled/invisible state after the enabled/visible property
+         * has been set to true
+         */
         timeout: {
           type: 'int',
           group: 'Misc',
           defaultValue: 5000
         },
+        /**
+         * text that is displayed at the button in the time the enabled property has been set to true until timeout
+         * is reached and the button is enabled again. After that time the original text of the button is displayed.
+         */
         timeoutButtonText: {
           type: 'string',
           group: 'Misc',
           defaultValue: null
         },
+        /**
+         * Icon that is displayed at the button in the time the enabled property has been set to true until timeout
+         * is reached and the button is enabled again. After that time the original icon of the button is displayed.
+         */
         timeoutIcon: {
           type: 'string',
           group: 'Misc',
           defaultValue: 'sap-icon://pending'
         },
+        /**
+         * Event that the functionality is working with. Currently enabled and visible events are supported.
+         */
         timeoutEventType: {
           type: "ui5.cc.timerbutton.EventType",
           group: "Misc",
           defaultValue: TimeoutEventType.enabled
         }
       },
-      events: {
-        /**
-         * Event is fired when the user clicks the control.
-         */
-        press: {}
-      }
+      events: {}
     },
     constructor: function _constructor(id, settings) {
       Button.prototype.constructor.call(this, id, settings);

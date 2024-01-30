@@ -14,6 +14,6 @@
 //   - @types/jquery@3.5.13
 //   - @types/cors@2.8.17
 //   - @types/cookie@0.4.1
-/// <reference path="./resources/ui5/cc/timerbutton/library.d.ts"/>
 /// <reference path="./resources/ui5/cc/timerbutton/TimerButton.gen.d.ts"/>
 /// <reference path="./resources/ui5/cc/timerbutton/TimerButton.d.ts"/>
+/// <reference path="./resources/ui5/cc/timerbutton/library.d.ts"/>
