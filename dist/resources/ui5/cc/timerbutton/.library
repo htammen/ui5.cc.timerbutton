@@ -2,7 +2,7 @@
 <library xmlns="http://www.sap.com/sap.ui.library.xsd">
 	<name>ui5.cc.timerbutton</name>
 	<vendor>Helmut Tammen</vendor>
-	<version>0.5.1</version>
+	<version>0.5.2</version>
 	<copyright>${copyright}</copyright>
 	<title>ui5-cc-timerbutton</title>
 	<documentation>TimerButton UI5 Control</documentation>

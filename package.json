@@ -1,9 +1,13 @@
 {
   "name": "ui5-cc-timerbutton",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "UI5 Library with a timerbutton. It's a button that can be disabled for a given amount of time",
   "author": "Helmut Tammen <h.tammen@tammen-it-solutions.de>",
-  "license": "Beerware",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/htammen/ui5.cc.timerbutton.git"
+  },
   "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist coverage",

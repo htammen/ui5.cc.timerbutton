@@ -5,7 +5,7 @@
     "type": "library",
     "embeds": [],
     "applicationVersion": {
-      "version": "0.5.1"
+      "version": "0.5.2"
     },
     "title": "ui5-cc-timerbutton",
     "description": "TimerButton UI5 Control",
